@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const caseSchema = new Schema({
     name: { type: String},
-    email: {type: String},
-    phoneNumber: {type: Number},
+    email: {type: String, unique: true, required: true, trim: true} ,
+    phoneNumber: {type: String},
     caseContent: {type: String}
 
 })

@@ -4,8 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose')
 
 dotenv.config()
+
+mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true}).then((client)=>{
+  console.log("success!")
+ }).catch((err)=>{
+  console.log("wrong password")
+ })
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
