@@ -15,7 +15,7 @@ exports.postCase = async (req, res, next) => {
         caseContent: req.body.caseContent
     };
     if (req.files) {
-        // console.log(req.files)
+        console.log(req.files)
         try {
             const uploader = async (path) => await cloudinary.uploads(path, 'justify');
             const urls = [];

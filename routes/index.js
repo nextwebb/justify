@@ -9,6 +9,7 @@ const upload = require('../middlewares/fileUpload');
 // });
 
 router.get('/', controllers.getcase);
-router.post('/api/report', upload.array('caseImages'), controllers.postCase);
+router.post('/api/report', upload.array('caseImages', 5), controllers.postCase);
 
 module.exports = router;
+ 
