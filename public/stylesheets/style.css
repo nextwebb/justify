@@ -1,8 +1,200 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+	border:2px solid grey;
+	max-width:60em;
+	margin: auto;
+	overflow: hidden;
 }
-
-a {
-  color: #00B7FF;
+.pg-head{
+	height: 40px;
+	display: flex;
+	margin-bottom: 10px;
+	box-shadow:0px 0px 12px rgba(0,0,0,0.2);
+}
+.pg-head>h2{
+	margin:auto 0px auto 10px;
+}
+i{
+	color:grey;
+}
+.pg-head>.src{
+	margin-left: auto;
+}
+.pg-head>.src>input{
+	height: 100%;
+	float: left;
+	padding:5px;
+	font-size: 17px;
+	border:none;
+	color:grey;
+	border-left:2px solid grey;
+}
+.pg-head>.src>button{
+	height: 100%;
+	float: left;
+	margin-top: auto;
+	width:30px;
+	padding:0px;
+	border-radius:0px;
+	border-color:lightgray;
+	background-color:lightgray;
+}
+.pg-foot{
+	border:1px solid grey;
+	width:100%;
+	position:absolute;
+	bottom:0;
+	height:50px;
+	box-shadow:0px -6px 9px rgba(0,0,0,0.3);
+}
+.pg-tag{
+	font-weight: 100;
+	text-transform:capitalize;
+	text-align: center;
+	padding:10px;
+}
+.const{
+	width: 98%;
+	height: 12em;
+	text-align: center;
+	display: flex;
+	margin:20px 5px;
+	box-shadow:1px 5px 8px rgba(0,0,0,0.4);
+}
+.const>h2{
+	margin: auto;
+	text-transform: capitalize;
+}
+.two-item{
+	display: flex;
+	height:8em;
+}
+.two-item>a{
+	height: 100%;
+	margin:0 5px;
+}
+/*post page*/
+.subPg>.bck{
+	border:1px solid transparent; 
+	width: 3em;
+	padding:7px 14px;
+}
+.subPg>.bck:hover{
+	background-color: lightgray;
+}
+.subPg>h2{
+	margin: auto;
+}
+.pg-mid{
+	text-align: center;
+}
+.input-T1{
+	background-color:transparent;
+	border:2px solid lightgrey;
+	margin-bottom:10px
+}
+.input-T1>input:focus ~ .place-hd,.input-T1>input:valid ~ .place-hd{
+	border-color:transparent;
+	background-color:lightgrey;
+	color: gray;
+}
+.qu-box{
+	padding:10px 5px;
+	border:2px solid lightgrey;
+	width:100%;
+	min-height:7em;
+	text-align:center;
+	font-size:20px;
+	color:grey;
+}
+.fiUpload{
+	border: 1px solid grey;
+	display:inline-block;
+	position: relative;
+	overflow: hidden;
+	height:2.5em;
+	width:100%;
+	text-align: center;
+	display:flex;
+}
+.fiUpload>input{
+	left:0;
+	width:100%;
+	z-index:1;
+	height:100%;
+	position: absolute;
+	opacity:0;
+}
+.fiUpload>div{
+	margin: auto;
+	height:100%;
+}
+.fiUpload>div>span{
+	border:1px solid transparent;
+	padding:5px 0px;
+	display:inline-block;
+	height:100%;
+	width:30px;
+	float: left;
+	margin-right:1em;
+}
+.fiUpload>div>p{
+	font-size:18px;
+	padding:9px 0px;
+	float: right;
+}
+.fl_list{
+	margin-top:-16px;
+	border-bottom:1px solid grey;
+}
+.fl_list>img{
+	max-width:6em;
+}
+.sub{
+	margin:10px;
+	text-transform: capitalize;
+	border:none;
+	border-radius:2px;
+}
+/*constitution page*/
+.nav{
+	color: grey;
+	display: inline-block;
+	width: 100%;
+	border-bottom:2px solid grey;
+}
+.nav>div{
+	padding:15px 5px;
+}
+.nav>.left{
+	font-weight: 600;
+	float: left;
+	width:2em;
+	padding:15px 10px;
+}
+.nav>.right{
+	width: calc(100% - 2em);
+	padding-left:1em;
+	float: left;
+}
+/*constitution page*/
+.case-body{
+	text-align: center;
+}
+.case{
+	margin:10px;
+	border: 1px solid grey;
+	text-align: center;
+	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+}
+.case>.img{
+	max-width:20em;
+	margin: auto;
+}
+.case>.text{
+	max-height:3em;
+	overflow: hidden;
+	max-width:20em;
+	background-color:lightgray;
+	padding:10px;
+	text-align:center;
 }
