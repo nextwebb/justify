@@ -3,7 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose')
 
+dotenv.config()
+// const db_uri = 'mongodb://localhost:27017/justify';
+const db_uri = process.env.CONNECTIONSTRING
+
+// mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }).then((client) => {
+//   console.log("success!")
+// }).catch((err) => {
+//   console.log(err)
+//   console.log("wrong password")
+// })
+
+mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true, createIndexes: true }).then(console.log('Database connected')).catch(err => console.log(err));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -23,12 +37,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
