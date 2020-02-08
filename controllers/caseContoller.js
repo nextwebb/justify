@@ -16,6 +16,8 @@ exports.postCase = async (req, res, next) => {
     };
     if (req.files) {
         console.log(req.files)
+        console.log('loading', 'we have gotten the files please hold on a little while')
+        // req.flash('loading', 'we have gotten the files please hold on a little while')
         try {
             const uploader = async (path) => await cloudinary.uploads(path, 'justify');
             const urls = [];
@@ -27,6 +29,7 @@ exports.postCase = async (req, res, next) => {
                 fs.unlinkSync(path)
             }
             // console.log(urls)
+            console.log('we are saving your file')
 
             caseDetails.images = urls
 
