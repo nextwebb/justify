@@ -1,4 +1,4 @@
-
+const Constitution = require('../models/Constitutions')
 
 const error = [] 
 

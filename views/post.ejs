@@ -39,6 +39,8 @@
 </script>
 <body>
 	<div class="pg-head subPg">
+		<!-- <h2>JUSTIFY</h2> -->
+
 		<p>post an issue</p>
 	</div>
 	<form method="post" action="/api/report" class="pg-mid" enctype="multipart/form-data">
@@ -83,10 +85,11 @@
 		<%# mailSent ? mailSent : '' %>
 
 	</form>
-	<div class="pg-foot">
+	<%- include('./partials/bottom.ejs') %>
+	<!-- <div class="pg-foot">
 		<a href="/" title="home"><i class="material-icons">account_balance</i></a>
 		<a href="const"  title="constitution"><i class="material-icons">receipt</i></a>
 		<a href="hot"  title="hotline"><i class="material-icons">call</i></a>
 		<a href="/api/report" title="report a case" class="act"><i class="material-icons">create</i></a>
-	</div>
+	</div> -->
 </body></html>
