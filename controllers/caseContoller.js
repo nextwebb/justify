@@ -102,5 +102,15 @@ exports.postCase = async (req, res, next) => {
 }
 
 exports.deleteCase = async (req, res, next) => {
-    
+
+}
+
+//AUTH
+
+exports.register = (req, res, next) => {
+    res.write('i am a register page', {})
+}
+
+exports.login = (req, res, next) => {
+    res.write('i am a login page', {})
 }

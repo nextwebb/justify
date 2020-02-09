@@ -5,8 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
+const flash = require('express-flash');
 
 dotenv.config()
+
 // const db_uri = 'mongodb://localhost:27017/justify';
 const db_uri = process.env.CONNECTIONSTRING
 
@@ -20,6 +25,8 @@ const db_uri = process.env.CONNECTIONSTRING
 mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true, createIndexes: true }).then(console.log('Database connected')).catch(err => console.log(err));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+require('./config/passport');
+
 
 var app = express();
 
@@ -32,6 +39,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: "mysecrect",
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ url: db_uri, collection: "app_sessions" })
+}));
+
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
