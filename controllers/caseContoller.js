@@ -83,6 +83,7 @@ exports.postCase = async (req, res, next) => {
         if (result) {
             console.log(result)
             console.log('i am working ooooo')
+           
             res.status(201).json({
                 name: result.name,
                 email: result.email,
@@ -115,7 +116,7 @@ exports.postCase = async (req, res, next) => {
         })
     
     
-    // res.render('', {})
+    res.render('/api/getcase')
 }
 
 exports.deleteCase = async (req, res, next) => {

@@ -7,6 +7,16 @@ const { getcase,
     deleteCase,
     register,
     login } = require('../controllers/caseContoller');
+const constController = require('../controllers/constController')
+
+
+router.post('/api/post/single-constitution',  constController.postConstitution)
+
+router.get('/api/get/all-constitution',  constController.getAllConstitution)
+
+router.post('/api/get/single-constitution',  constController.getSingleConstitution)
+
+const controllers = require('../controllers/caseContoller');
 const upload = require('../middlewares/fileUpload');
 
 /* GET home page. */
@@ -42,10 +52,11 @@ router.get('/api/cases', getcase);
 router.get('/api/cases/:id', oneCase)
 router.post('/api/report', upload.array('caseImages', 5), postCase);
 router.delete('/api/cases/:id', deleteCase);
+router.get('/api/getcases', (req, res, next) => {
+    let success = req.flash('success')
+    res.render('post', { success })
+})
 
-router.get('/const', function(req, res, next) {
-  res.render('const', { title: 'Express' });
-});
 
 router.get('/post', function(req, res, next) {
   res.render('post', { title: 'Express' });
@@ -54,5 +65,6 @@ router.get('/post', function(req, res, next) {
 router.get('/hot', function(req, res, next) {
   res.render('hot', { title: 'Express' });
 });
+
 
 module.exports = router;
