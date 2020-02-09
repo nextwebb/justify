@@ -7,6 +7,8 @@ const caseSchema = new Schema({
     phoneNumber: {type: String},
     caseContent: {type: String},
     images:  {type: Array},
+    status: {type: String},
+    createdDate : {type: Date, default:Date.now}
 
 })
 
