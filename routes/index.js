@@ -29,5 +29,6 @@ router.get('/hot', function(req, res, next) {
   res.render('hot', { title: 'Express' });
 });
 
+
 module.exports = router;
  

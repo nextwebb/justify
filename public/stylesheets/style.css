@@ -9,13 +9,16 @@ body{
 	display: flex;
 	margin-bottom: 10px;
 	box-shadow:0px 0px 12px rgba(0,0,0,0.2);
+	background-color: #48b2d9;
 }
 .pg-head>h2{
 	margin:auto 0px auto 10px;
+	color:white;
 }
 .pg-head>p{
 	margin:auto;
 	text-transform: capitalize;
+	color:white;
 }
 i{
 	color:grey;
@@ -30,7 +33,7 @@ i{
 	font-size: 17px;
 	border:none;
 	color:grey;
-	border-left:2px solid grey;
+	border-left:2px solid #1a6885;
 }
 .pg-head>.src>button{
 	height: 100%;
@@ -39,8 +42,11 @@ i{
 	width:30px;
 	padding:0px;
 	border-radius:0px;
-	border-color:lightgray;
-	background-color:lightgray;
+	border-color:#48b2d9;
+	background-color:#48b2d9;
+}
+.pg-head>.src>button>i{
+	color:white;
 }
 .pg-foot{
 	width:100%;
@@ -54,22 +60,22 @@ i{
 	
 }
 .pg-foot>a{
-	background-color: white;
+	background-color: #48b2d9;
 	display: flex;
-	border:1px solid grey;
 	width: 100%;
 	height:100%;
 	margin: auto;
 	box-shadow:0px -6px 9px rgba(0,0,0,0.3);
 }
 .pg-foot>.act{
-	background-color: aqua;
+	background-color: #1a6885;
 }
 .pg-foot>.act>i{
 	color:white;
 }
 .pg-foot>a>i{
 	margin: auto;
+	color:black;
 }
 .pg-tag{
 	font-weight: 100;
@@ -111,6 +117,7 @@ i{
 }
 .pg-mid{
 	text-align: center;
+	padding: 0px 30px;;
 }
 .input-T1{
 	background-color:transparent;
@@ -119,8 +126,11 @@ i{
 }
 .input-T1>input:focus ~ .place-hd,.input-T1>input:valid ~ .place-hd{
 	border-color:transparent;
-	background-color:lightgrey;
+	background-color:white;
 	color: gray;
+}
+.input-T1>span>i{
+	color:#48b2d9;
 }
 .qu-box{
 	padding:10px 5px;
@@ -156,7 +166,6 @@ i{
 .fiUpload>div>span{
 	border:1px solid transparent;
 	padding:5px 0px;
-	display:inline-block;
 	height:100%;
 	width:30px;
 	float: left;
@@ -207,7 +216,6 @@ i{
 }
 .case{
 	margin:10px;
-	border: 1px solid grey;
 	text-align: center;
 	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
 }
@@ -219,7 +227,8 @@ i{
 	max-height:3em;
 	overflow: hidden;
 	max-width:20em;
-	background-color:lightgray;
+	background-color:#48b2d9;
+	color:white;
 	padding:10px;
 	text-align:center;
 }

@@ -24,7 +24,7 @@ exports.postConstitution = function(req, res){
 exports.getAllConstitution = function(req, res){
     Constitution.find({}).then((articles)=>{
        console.log(articles) //array of articles
-     // res.render("/", {constitutions: articles } )
+      res.render("const", {constitutions: articles } )
     // res.json(articles)
     }).catch((err)=>{
         console.log(err)
