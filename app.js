@@ -3,8 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const dotenv = require('dotenv')
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+
+// mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true}).then(console.log("success!")).catch((err)=>{
+//   console.log("wrong password") 
+//  })
 
 dotenv.config()
 // const db_uri = 'mongodb://localhost:27017/justify';
@@ -17,7 +24,7 @@ const db_uri = process.env.CONNECTIONSTRING
 //   console.log("wrong password")
 // })
 
-mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true, createIndexes: true }).then(console.log('Database connected')).catch(err => console.log(err));
+mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}).then(console.log('Database connected')).catch(err => console.log(err));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
