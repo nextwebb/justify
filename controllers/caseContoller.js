@@ -2,6 +2,7 @@ const Cases = require('../models/cases');
 // const multer = require('multer');
 const cloudinary = require('../config/cloudinary');
 const fs = require('fs')
+const mailer = require('../config/mailer');
 
 
 //get all cases fron the database
@@ -82,11 +83,12 @@ exports.postCase = async (req, res, next) => {
         if (result) {
             console.log(result)
             console.log('i am working ooooo')
-            res.json({
+            res.status(201).json({
                 name: result.name,
                 email: result.email,
                 phoneNumber: result.phoneNumber,
                 caseContent: result.caseContent,
+                caseId: result._id,
                 images: result.images.map((image) => {
                     return {
                         imageurl: image.url,
@@ -96,8 +98,23 @@ exports.postCase = async (req, res, next) => {
             })
         }
     }).catch(err => {
+        console.log("after render")
         console.log('you data wasnt sent, please try again')
-    })
+    }); 
+    // function(done) {}
+    let maiLOptions = {
+        to: 'phawazzzy@gmail.com',
+        subject: 'new case',
+        text: `${req.body.caseContent} click this link to view more https://localhost:3000/api/report/` 
+    };
+    mailSender(maiLOptions)
+        .catch((err) => {
+            return next(err)
+        }).then(() => {
+            req.flash('mailSent', 'Your mail has been sent')
+        })
+    
+    
     // res.render('', {})
 }
 
