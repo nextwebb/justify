@@ -11,8 +11,16 @@
 		<p>country constitution</p>
 	</div>
 	<div class="nav">
-		<div class="left">1</div>
-		<div class="right"><b>key word</b><br><br>Lorem Ipsum, Lipsum, Lorem, Ipsum, Text, Generate, Generator, Facts, Information, What, Why, Where, Dummy Text, Typesetting, Printing, de Finibus, Bonorum et Malorum, de Finibus Bonorum et Malorum, Extremes of Good and Evil, Cicero, Latin, Garbled, Scrambled,</div>
+		<% 
+		let num = 1
+		constitutions.forEach((constitution)=>{ %>
+			<div class="left"> <%= num++ %></div>
+		<div class="right"><b><%= constitution.subject.toUpperCase() %></b><br><br>
+			<%= constitution.content %>
+			</div>
+		<% })
+		%>
+		
 	</div>
 	<form class="pg-mid">
 		<button class="sub">next</button>
@@ -22,8 +30,8 @@
 
 	<!-- <div class="pg-foot">
 		<a href="/" title="home"><i class="material-icons">account_balance</i></a>
-		<a href="const"  title="constitution" class="act"><i class="material-icons">receipt</i></a>
-		<a href="hot"  title="hotline"><i class="material-icons">call</i></a>
+		<a href="/api/get/all-constitution"  title="constitution" class="act"><i class="material-icons">receipt</i></a>
+		<a href="/users/hot"  title="hotline"><i class="material-icons">call</i></a>
 		<a href="post" title="report a case"><i class="material-icons">create</i></a>
 	</div> -->
 </body></html>

@@ -6,6 +6,6 @@ const userController = require('../controllers/userController')
 // /user
 router.get("/", userController.home)
 
-router.get("/const", userController.const)
+router.get("/hot", userController.hotline)
 
 module.exports = router;
