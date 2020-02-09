@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const controllers = require('../controllers/caseContoller');
+const { getcase,
+    postCase,
+    oneCase } = require('../controllers/caseContoller');
 const upload = require('../middlewares/fileUpload');
 
 /* GET home page. */
@@ -8,8 +10,8 @@ const upload = require('../middlewares/fileUpload');
 //   res.render('index', { title: 'Express' });
 // });
 
-router.get('/api/cases', controllers.getcase);
-router.post('/api/report', upload.array('caseImages', 5), controllers.postCase);
+router.get('/api/cases', getcase);
+router.get('/api/cases/:id', oneCase)
+router.post('/api/report', upload.array('caseImages', 5), postCase);
 
 module.exports = router;
- 

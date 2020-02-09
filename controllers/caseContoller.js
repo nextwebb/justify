@@ -3,22 +3,47 @@ const Cases = require('../models/cases');
 const cloudinary = require('../config/cloudinary');
 const fs = require('fs')
 
-exports.getcase = (req, res, next) => {
-    Cases.find({}).then((result) => {
+
+//get all cases fron the database
+exports.getcase = async (req, res, next) => {
+    await Cases.find({}).then((result) => {
         if (result) {
             console.log(result)
             res.status(200).json({
                 result: result
             })
-    // res.render('', {});
+            // res.render('', {});
 
         }
     }).catch(err => {
         console.log(err)
-    // res.render('', {});
+        // res.render('', {});
 
     })
 }
+
+exports.oneCase = async (req, res, next) => {
+    await Cases.findById({ _id: req.params.id })
+        .then(result => {
+            if(result) {
+                res.status(201).json({
+                    caseDetails : result
+                })
+            }
+            // res.render('', {});
+
+        })
+        // .exec()
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+            // res.render('', {});
+
+        })
+
+}
+
 
 exports.postCase = async (req, res, next) => {
     const caseDetails = {
