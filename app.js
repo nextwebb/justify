@@ -3,6 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv')
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+dotenv.config()
+
+mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true}).then(console.log("success!")).catch((err)=>{
+  console.log("wrong password") 
+ })
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
