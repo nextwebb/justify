@@ -3,12 +3,21 @@
 const error = [] 
 
 exports.home = function(req, res){
-    res.render('index')
+    Constitution.find({}).then((articles)=>{
+        console.log(articles) //array of articles
+       res.render("index", {constitutions: articles } )
+     // res.json(articles)
+     }).catch((err)=>{
+         console.log(err)
+         error.push(err)
+         console.log(error)
+     })
+ }
    
-}
 
- exports.const = function(req, res){
-    res.render('const')
+
+ exports.hotline = function(req, res){
+    res.render('hot')
  }
 
 // exports.home = function(req, res){
