@@ -72,7 +72,6 @@ img {max-width: 100%;vertical-align: middle;}
 .input-T1>span{
 	width:30px;
 	height:100%;
-	float: right;
 	display: inline-block;
 	margin-right:-30px;
 }
