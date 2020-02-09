@@ -22,6 +22,7 @@ exports.getcase = async (req, res, next) => {
     })
 }
 
+//get one case from the database
 exports.oneCase = async (req, res, next) => {
     await Cases.findById({ _id: req.params.id })
         .then(result => {
@@ -44,7 +45,7 @@ exports.oneCase = async (req, res, next) => {
 
 }
 
-
+//post case the database
 exports.postCase = async (req, res, next) => {
     const caseDetails = {
         name: req.body.name,
@@ -98,4 +99,8 @@ exports.postCase = async (req, res, next) => {
         console.log('you data wasnt sent, please try again')
     })
     // res.render('', {})
+}
+
+exports.deleteCase = async (req, res, next) => {
+    
 }

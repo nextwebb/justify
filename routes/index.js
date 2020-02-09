@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 const { getcase,
     postCase,
-    oneCase } = require('../controllers/caseContoller');
+    oneCase,
+    deleteCase } = require('../controllers/caseContoller');
 const upload = require('../middlewares/fileUpload');
 
 /* GET home page. */
@@ -13,5 +14,6 @@ const upload = require('../middlewares/fileUpload');
 router.get('/api/cases', getcase);
 router.get('/api/cases/:id', oneCase)
 router.post('/api/report', upload.array('caseImages', 5), postCase);
+router.delete('/api/cases/:id', deleteCase);
 
 module.exports = router;
