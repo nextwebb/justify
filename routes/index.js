@@ -8,7 +8,7 @@ const upload = require('../middlewares/fileUpload');
 //   res.render('index', { title: 'Express' });
 // });
 
-router.get('/', controllers.getcase);
+router.get('/api/cases', controllers.getcase);
 router.post('/api/report', upload.array('caseImages', 5), controllers.postCase);
 
 module.exports = router;
